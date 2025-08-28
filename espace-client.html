@@ -8,6 +8,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body class="espace-section">
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <h1 class="logo-text">MONTROVIA</h1>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
+            <li><a href="index.html#boutique" class="nav-link">Boutique</a></li>
+            <li><a href="index.html#apropos" class="nav-link">À propos</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            <li><a href="espace-client.html" class="nav-link">Espace client</a></li>
+          </ul>
+          <div class="nav-icons">
+            <a href="#" class="icon-link" id="search-toggle"><i class="fas fa-search"></i></a>
+            <a href="#" class="icon-link" id="cart-toggle">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h3>Mon Panier</h3>
+        <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">0,00 FCFA</span>
+        </div>
+        <button class="btn btn-primary btn-full" id="checkout-btn">Commander</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
     <div class="espace-container">
       <div class="espace-tabs">
         <button class="tab-btn active" data-tab="login">Se connecter</button>
@@ -47,6 +93,48 @@
       </div>
     </div>
 
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>MONTROVIA</h3>
+            <p>Un style vrai, une identité forte, une marque qui te ressemble.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Boutique</h4>
+            <ul>
+              <li><a href="index.html#boutique">Tous les produits</a></li>
+              <li><a href="index.html#boutique">T-shirts</a></li>
+              <li><a href="index.html#boutique">Hoodies</a></li>
+              <li><a href="index.html#boutique">Jogging</a></li>
+              <li><a href="index.html#boutique">Bonnets</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="#">Livraison</a></li>
+              <li><a href="#">Retours</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Légal</h4>
+            <ul>
+              <li><a href="#">CGV</a></li>
+              <li><a href="#">Confidentialité</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Mentions légales</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 MONTROVIA. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
     <script>
       const tabs = document.querySelectorAll('.tab-btn');
       const forms = { login: document.getElementById('login-form'), signup: document.getElementById('signup-form') };
@@ -81,6 +169,8 @@
         redirectAfterAuth();
       });
     </script>
+    <script src="script.js"></script>
+    <script src="invoice.js"></script>
   </body>
   </html>
 
