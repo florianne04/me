@@ -63,16 +63,22 @@
     switch (region) {
       case "afrique-ouest":
       case "afrique-centrale":
-        businessDays = 3; // 2-5 j ouvrés → médiane 3
+        businessDays = 3;
         break;
       case "europe":
-        businessDays = 6; // 5-8 j ouvrés → médiane 6
+        businessDays = 6;
         break;
       default:
         businessDays = 5;
     }
     const eta = addBusinessDays(today, businessDays);
-    return eta.toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" });
+    // Fixer une heure de livraison par défaut (16:00)
+    eta.setHours(16, 0, 0, 0);
+    return {
+      dateStr: eta.toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" }),
+      timeStr: eta.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }),
+      weekday: eta.toLocaleDateString("fr-FR", { weekday: "long" })
+    };
   }
 
   function generateInvoiceNumber() {
@@ -95,7 +101,9 @@
 
   function computeTotals(cart) {
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const shipping = subtotal > 0 ? 0 : 0; // ajustable
+    const region = detectRegionSafe();
+    let shipping = 0;
+    if (region === "europe") shipping = 8000; else if (region === "afrique-ouest") shipping = 2000; else shipping = 3000;
     const total = subtotal + shipping;
     return { subtotal, shipping, total };
   }
@@ -180,7 +188,7 @@
               <div class="inv-meta">
                 <div><strong>Facture:</strong> ${escapeHtml(invoiceNumber)}</div>
                 <div><strong>Commandé le:</strong> ${escapeHtml(orderDate)}</div>
-                <div><strong>Livraison estimée:</strong> ${escapeHtml(estimatedDeliveryDate)}</div>
+                <div><strong>Livraison estimée:</strong> ${escapeHtml(estimatedDeliveryDate.weekday)}, ${escapeHtml(estimatedDeliveryDate.dateStr)} à ${escapeHtml(estimatedDeliveryDate.timeStr)}</div>
               </div>
             </div>
             <div class="content">
