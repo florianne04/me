@@ -55,40 +55,76 @@
     <div class="overlay" id="overlay"></div>
 
     <div class="espace-container">
-      <div class="espace-tabs">
+      <div class="espace-tabs" id="auth-tabs">
         <button class="tab-btn active" data-tab="login">Se connecter</button>
         <button class="tab-btn" data-tab="signup">S'inscrire</button>
       </div>
+
       <div class="espace-forms">
+        <!-- Connexion -->
         <div class="espace-form active" id="login-form">
           <h2>Connexion</h2>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="login-email" placeholder="vous@exemple.com" required />
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="vous@exemple.com" autocomplete="email" required />
           </div>
           <div class="form-group">
-            <label>Mot de passe</label>
-            <input type="password" id="login-password" placeholder="••••••••" required />
+            <label for="login-password">Mot de passe</label>
+            <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required />
+          </div>
+          <div class="form-remember" style="margin-bottom:16px;">
+            <input type="checkbox" id="login-remember" />
+            <label for="login-remember">Se souvenir de moi</label>
           </div>
           <button class="btn btn-primary" id="btn-login">Se connecter</button>
-          <div class="espace-links"><a href="#" class="espace-link" data-switch="signup">Créer un compte</a></div>
+          <div class="espace-links">
+            <a href="#" class="espace-link" id="forgot-link">Mot de passe oublié ?</a>
+            <span>•</span>
+            <a href="#" class="espace-link" data-switch="signup">Créer un compte</a>
+          </div>
         </div>
+
+        <!-- Inscription -->
         <div class="espace-form" id="signup-form">
           <h2>Inscription</h2>
           <div class="form-group">
-            <label>Nom complet</label>
-            <input type="text" id="signup-name" placeholder="Jean Dupont" required />
+            <label for="signup-name">Nom complet</label>
+            <input type="text" id="signup-name" placeholder="Jean Dupont" autocomplete="name" required />
           </div>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="signup-email" placeholder="vous@exemple.com" required />
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="vous@exemple.com" autocomplete="email" required />
           </div>
           <div class="form-group">
-            <label>Mot de passe</label>
-            <input type="password" id="signup-password" placeholder="••••••••" required />
+            <label for="signup-phone">Téléphone (optionnel)</label>
+            <input type="tel" id="signup-phone" placeholder="+225 0700000000" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Mot de passe</label>
+            <input type="password" id="signup-password" placeholder="Min. 6 caractères" autocomplete="new-password" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-password2">Confirmer le mot de passe</label>
+            <input type="password" id="signup-password2" placeholder="Répétez le mot de passe" autocomplete="new-password" required />
+          </div>
+          <div class="form-remember" style="margin-bottom:16px;">
+            <input type="checkbox" id="signup-cgu" />
+            <label for="signup-cgu">J'accepte les CGU et la Politique de confidentialité</label>
           </div>
           <button class="btn btn-primary" id="btn-signup">Créer le compte</button>
           <div class="espace-links"><a href="#" class="espace-link" data-switch="login">J'ai déjà un compte</a></div>
+        </div>
+
+        <!-- Compte connecté -->
+        <div class="espace-form" id="account-panel" style="display:none;">
+          <h2>Mon compte</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div id="account-greeting" style="font-weight:700;color:var(--text-secondary);"></div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button class="btn btn-primary" id="btn-to-shop">Retour à la boutique</button>
+              <button class="btn btn-secondary" id="btn-logout">Se déconnecter</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -150,24 +186,59 @@
 
       function setUser(user) { localStorage.setItem('mt-user', JSON.stringify(user)); }
 
+      function isValidEmail(e){ return /.+@.+\..+/.test(e) }
+      function minLen(s, n){ return (s || '').length >= n }
+
       document.getElementById('btn-signup').addEventListener('click', () => {
         const name = document.getElementById('signup-name').value.trim();
         const email = document.getElementById('signup-email').value.trim();
+        const phone = document.getElementById('signup-phone').value.trim();
         const pwd = document.getElementById('signup-password').value.trim();
-        if (!name || !email || !pwd) { alert('Veuillez remplir tous les champs'); return; }
-        setUser({ name, email });
+        const pwd2 = document.getElementById('signup-password2').value.trim();
+        const cgu = document.getElementById('signup-cgu').checked;
+        if (!name || !email || !pwd || !pwd2) { alert('Veuillez remplir tous les champs obligatoires'); return; }
+        if (!isValidEmail(email)) { alert('Email invalide'); return; }
+        if (!minLen(pwd, 6)) { alert('Le mot de passe doit contenir au moins 6 caractères'); return; }
+        if (pwd !== pwd2) { alert('Les mots de passe ne correspondent pas'); return; }
+        if (!cgu) { alert('Veuillez accepter les CGU'); return; }
+        const user = { name, email, phone: phone || null };
+        setUser(user);
         alert('Compte créé avec succès');
-        redirectAfterAuth();
+        showAccount(user);
       });
 
       document.getElementById('btn-login').addEventListener('click', () => {
         const email = document.getElementById('login-email').value.trim();
         const pwd = document.getElementById('login-password').value.trim();
         if (!email || !pwd) { alert('Veuillez renseigner vos identifiants'); return; }
-        setUser({ email });
+        if (!isValidEmail(email)) { alert('Email invalide'); return; }
+        const remember = document.getElementById('login-remember').checked;
+        const current = JSON.parse(localStorage.getItem('mt-user') || 'null');
+        const user = current && current.email === email ? current : { email };
+        setUser(user);
+        if (remember) { localStorage.setItem('mt-remember', '1'); } else { localStorage.removeItem('mt-remember'); }
         alert('Connexion réussie');
-        redirectAfterAuth();
+        showAccount(user);
       });
+
+      function showAccount(user){
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('account-panel').style.display = 'block';
+        const tabs = document.getElementById('auth-tabs');
+        if (tabs) tabs.style.display = 'none';
+        document.getElementById('account-greeting').textContent = `Connecté en tant que ${user.name || user.email}`;
+      }
+
+      const existing = JSON.parse(localStorage.getItem('mt-user') || 'null');
+      if (existing) { showAccount(existing); }
+
+      document.getElementById('btn-logout')?.addEventListener('click', () => {
+        localStorage.removeItem('mt-user');
+        alert('Déconnexion réussie');
+        location.reload();
+      });
+      document.getElementById('btn-to-shop')?.addEventListener('click', () => { location.href = 'index.html#boutique'; });
     </script>
     <script src="script.js"></script>
     <script src="invoice.js"></script>
