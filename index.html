@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MONTROVIA - Born to Build</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Unna:wght@700&family=Ms+Madi&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <meta name="description" content="Montrovia - Marque de vêtements exclusive. Porte la rareté, l'authenticité et le pouvoir. Collections limitées, style unique, mode urbaine." />
+    <meta name="keywords" content="Montrovia, vêtements, mode, exclusif, rareté, authenticité, streetwear, collection limitée, t-shirts, hoodies, jogging, bonnets, boutique, urban style, fashion" />
+    <meta name="author" content="Montrovia" />
+    <meta property="og:title" content="MONTROVIA - Born to Build" />
+    <meta property="og:description" content="Montrovia - Marque de vêtements exclusive. Porte la rareté, l'authenticité et le pouvoir. Collections limitées, style unique, mode urbaine." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://montrovia.com/" />
+    <meta property="og:image" content="https://montrovia.com/images/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MONTROVIA - Born to Build" />
+    <meta name="twitter:description" content="Montrovia - Marque de vêtements exclusive. Porte la rareté, l'authenticité et le pouvoir. Collections limitées, style unique, mode urbaine." />
+    <meta name="twitter:image" content="https://montrovia.com/images/og-image.jpg" />
+  </head>
+  <body>
+    <div class="intro-splash">
+      <div class="intro-logo">MONTROVIA</div>
+      <div class="intro-slogan">Born to Build</div>
+    </div>
+
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <h1 class="logo-text">MONTROVIA</h1>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="#accueil" class="nav-link">Accueil</a></li>
+            <li><a href="#boutique" class="nav-link">Boutique</a></li>
+            <li><a href="#apropos" class="nav-link">À propos</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="espace-client.html" class="nav-link">Espace client</a></li>
+          </ul>
+          <div class="nav-icons">
+            <a href="#" class="icon-link" id="search-toggle"><i class="fas fa-search"></i></a>
+            <a href="#" class="icon-link" id="cart-toggle">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h3>Mon Panier</h3>
+        <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">0,00 FCFA</span>
+        </div>
+        <button class="btn btn-primary btn-full" id="checkout-btn">Commander</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section id="accueil" class="hero">
+      <div class="hero-content" style="justify-content: center; align-items: center; flex-direction: column; text-align: center; min-height: 60vh;">
+        <div class="hero-text">
+          <h1 class="hero-brand" style="font-family: 'Unna', serif; font-size: 3.5rem; letter-spacing: 0.12em; margin-bottom: 1.2rem;">MONTROVIA</h1>
+          <p class="hero-slogan born" style="font-family: 'Ms Madi', cursive; font-size: 2.3rem; letter-spacing: 0.08em; margin-top: 0.2rem; margin-bottom: 1.2rem; color: #bfa76a;">Born to Build</p>
+          <p class="hero-accroche" style="font-size:1.25rem; color:#fff; margin-bottom:1.5rem; font-style:italic;">Porte ce que les autres ne peuvent pas porter. Sois la rareté. Attire sans parler.</p>
+          <div class="hero-buttons" style="justify-content: center;">
+            <a href="#boutique" class="btn btn-primary">Découvrir la collection</a>
+            <a href="#apropos" class="btn btn-secondary">Notre histoire</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories">
+      <div class="container">
+        <div class="categories-grid">
+          <div class="category-card">
+            <div class="category-image">
+              <div class="category-placeholder"><i class="fas fa-tshirt"></i></div>
+            </div>
+            <h3>T-shirts</h3>
+            <p class="category-subtitle">Classic & Genesis</p>
+            <a href="#boutique?category=tshirts" class="category-link">Découvrir</a>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <div class="category-placeholder"><i class="fas fa-tshirt"></i></div>
+            </div>
+            <h3>Hoodies</h3>
+            <p class="category-subtitle">Classic & Genesis</p>
+            <a href="#boutique?category=hoodies" class="category-link">Découvrir</a>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <div class="category-placeholder"><i class="fas fa-running"></i></div>
+            </div>
+            <h3>Jogging</h3>
+            <p class="category-subtitle">Classic & Genesis</p>
+            <a href="#boutique?category=jogging" class="category-link">Découvrir</a>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <div class="category-placeholder"><i class="fas fa-hat-cowboy"></i></div>
+            </div>
+            <h3>Bonnets</h3>
+            <p class="category-subtitle">Accessoires</p>
+            <a href="#boutique?category=bonnets" class="category-link">Découvrir</a>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <div class="category-placeholder"><i class="fas fa-shirt"></i></div>
+            </div>
+            <h3>Crop Tops</h3>
+            <p class="category-subtitle">Classic</p>
+            <a href="#boutique?category=croptops" class="category-link">Découvrir</a>
+          </div>
+          <div class="category-card">
+            <div class="category-image">
+              <div class="category-placeholder"><i class="fas fa-hat-cowboy"></i></div>
+            </div>
+            <h3>Chapeaux</h3>
+            <p class="category-subtitle">Accessoires</p>
+            <a href="#boutique?category=chapeaux" class="category-link">Découvrir</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="boutique" class="boutique">
+      <div class="container">
+        <div class="boutique-header">
+          <h2 class="section-title">Boutique</h2>
+          <div class="filters">
+            <div class="filter-group">
+              <label for="design-filter">Ligne de Design:</label>
+              <select id="design-filter">
+                <option value="">Toutes les lignes</option>
+                <option value="classic">Classic - Élégance Intemporelle</option>
+                <option value="genesis">Genesis - Innovation Moderne</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="category-filter">Catégorie:</label>
+              <select id="category-filter">
+                <option value="">Toutes</option>
+                <option value="tshirts">T-shirts</option>
+                <option value="hoodies">Hoodies</option>
+                <option value="jogging">Jogging</option>
+                <option value="bonnets">Bonnets</option>
+                <option value="croptops">Crop Tops</option>
+                <option value="chapeaux">Chapeaux</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="color-filter">Couleur:</label>
+              <select id="color-filter">
+                <option value="">Toutes</option>
+                <option value="noir">Noir</option>
+                <option value="blanc">Blanc</option>
+                <option value="rose">Rose</option>
+                <option value="rouge">Rouge</option>
+                <option value="marron">Marron</option>
+                <option value="beige">Beige</option>
+                <option value="bleu">Bleu</option>
+                <option value="vert">Vert</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="size-filter">Taille:</label>
+              <select id="size-filter">
+                <option value="">Toutes</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="One Size">One Size</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+      </div>
+    </section>
+
+    <section id="apropos" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2 class="section-title">À propos de MONTROVIA</h2>
+            <p><em>MONTROVIA n'est pas une marque comme les autres. C'est un symbole de pouvoir, de rareté et d'authenticité. Ici, chaque pièce est pensée comme un manifeste pour celles et ceux qui veulent s'affirmer, se distinguer, et laisser une empreinte unique.</em></p>
+            <p>Inspirée par l'énergie brute des bâtisseurs, MONTROVIA s'adresse à une génération qui ne se contente pas de suivre : elle crée, elle ose, elle construit. Porter MONTROVIA, c'est revendiquer sa singularité, c'est afficher sa force tranquille et son ambition sans compromis.</p>
+            <p>Nos vêtements sont conçus pour durer, pour accompagner les esprits libres et audacieux dans chaque étape de leur parcours. Chaque collection est produite en quantité limitée, pour préserver ce sentiment d'exclusivité et de rareté qui fait la légende de MONTROVIA.</p>
+            <p>Chez MONTROVIA, l'authenticité n'est pas un slogan : c'est une exigence. Nos créations sont le reflet d'une identité forte, d'un style affirmé, d'une volonté de marquer le monde de son empreinte. Ici, chaque détail compte, chaque couture raconte une histoire : la tienne.</p>
+            <p><strong>Rejoindre MONTROVIA, c'est rejoindre une élite de bâtisseurs, de rêveurs, de leaders. C'est porter haut les couleurs de la rareté, du pouvoir, et de l'authenticité. Born to Build.</strong></p>
+            <p style="margin-top:2rem;"><em>Sois rare. Sois vrai. Sois puissant. Sois MONTROVIA.</em></p>
+            <div class="about-features">
+              <div class="feature">
+                <i class="fas fa-crown"></i>
+                <h4>Pouvoir</h4>
+                <p>Des créations pour s'affirmer et inspirer le respect.</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-gem"></i>
+                <h4>Rareté</h4>
+                <p>Collections limitées, pièces uniques, exclusivité garantie.</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-fingerprint"></i>
+                <h4>Authenticité</h4>
+                <p>Un style vrai, une identité forte, une marque qui te ressemble.</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="about-placeholder">
+              <i class="fas fa-university"></i>
+              <p>Notre Histoire</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info" style="width:100%;text-align:center;">
+            <h2 class="section-title">Contact</h2>
+            <p>Retrouvez-nous sur nos réseaux sociaux :</p>
+            <div class="social-contact-links" style="display:flex;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap;">
+              <a href="https://www.instagram.com/monsieur_o_g?igsh=OTNlcmJqMWx6MXgx&utm_source=qr" target="_blank" class="btn btn-primary" style="background:linear-gradient(90deg,#833ab4,#fd1d1d,#fcb045);color:#fff;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:0.7rem;"><i class="fab fa-instagram"></i> Instagram</a>
+              <a href="https://www.tiktok.com/@montrovia_1?_t=ZM-8ysxUvKTxvK&_r=1" target="_blank" class="btn btn-primary" style="background:#000;color:#fff;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:0.7rem;"><i class="fab fa-tiktok"></i> TikTok</a>
+              <a href="https://youtube.com/@montrovia?si=_Bk78x4n8r61Locc" target="_blank" class="btn btn-primary" style="background:#ff0000;color:#fff;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:0.7rem;"><i class="fab fa-youtube"></i> YouTube</a>
+              <a href="https://www.facebook.com/share/19b1UJXnCi/?mibextid=wwXIfr" target="_blank" class="btn btn-primary" style="background:#1877f2;color:#fff;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:0.7rem;"><i class="fab fa-facebook"></i> Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>MONTROVIA</h3>
+            <p>Un style vrai, une identité forte, une marque qui te ressemble.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Boutique</h4>
+            <ul>
+              <li><a href="#boutique">Tous les produits</a></li>
+              <li><a href="#boutique?category=tshirts">T-shirts</a></li>
+              <li><a href="#boutique?category=hoodies">Hoodies</a></li>
+              <li><a href="#boutique?category=jogging">Jogging</a></li>
+              <li><a href="#boutique?category=bonnets">Bonnets</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="livraisons.html">Livraison</a></li>
+              <li><a href="retours.html">Retours</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Légal</h4>
+            <ul>
+              <li><a href="#">CGV</a></li>
+              <li><a href="#">Confidentialité</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Mentions légales</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 MONTROVIA. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="invoice.js"></script>
+  </body>
+  </html>
+

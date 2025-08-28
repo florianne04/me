@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Espace client - MONTROVIA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Unna:wght@700&family=Ms+Madi&display=swap" rel="stylesheet" />
+  </head>
+  <body class="espace-section">
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <h1 class="logo-text">MONTROVIA</h1>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
+            <li><a href="index.html#boutique" class="nav-link">Boutique</a></li>
+            <li><a href="index.html#apropos" class="nav-link">À propos</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            <li><a href="espace-client.html" class="nav-link">Espace client</a></li>
+          </ul>
+          <div class="nav-icons">
+            <a href="#" class="icon-link" id="search-toggle"><i class="fas fa-search"></i></a>
+            <a href="#" class="icon-link" id="cart-toggle">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </div>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h3>Mon Panier</h3>
+        <button class="cart-close" id="cart-close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total">0,00 FCFA</span>
+        </div>
+        <button class="btn btn-primary btn-full" id="checkout-btn">Commander</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="espace-container">
+      <div class="espace-tabs" id="auth-tabs">
+        <button class="tab-btn active" data-tab="login">Se connecter</button>
+        <button class="tab-btn" data-tab="signup">S'inscrire</button>
+      </div>
+
+      <div class="espace-forms">
+        <!-- Connexion -->
+        <div class="espace-form active" id="login-form">
+          <h2>Connexion</h2>
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="vous@exemple.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Mot de passe</label>
+            <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required />
+          </div>
+          <div class="form-remember" style="margin-bottom:16px;">
+            <input type="checkbox" id="login-remember" />
+            <label for="login-remember">Se souvenir de moi</label>
+          </div>
+          <button class="btn btn-primary" id="btn-login">Se connecter</button>
+          <div class="espace-links">
+            <a href="#" class="espace-link" id="forgot-link">Mot de passe oublié ?</a>
+            <span>•</span>
+            <a href="#" class="espace-link" data-switch="signup">Créer un compte</a>
+          </div>
+        </div>
+
+        <!-- Inscription -->
+        <div class="espace-form" id="signup-form">
+          <h2>Inscription</h2>
+          <div class="form-group">
+            <label for="signup-name">Nom complet</label>
+            <input type="text" id="signup-name" placeholder="Jean Dupont" autocomplete="name" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="vous@exemple.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-phone">Téléphone (optionnel)</label>
+            <input type="tel" id="signup-phone" placeholder="+225 0700000000" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Mot de passe</label>
+            <input type="password" id="signup-password" placeholder="Min. 6 caractères" autocomplete="new-password" required />
+          </div>
+          <div class="form-group">
+            <label for="signup-password2">Confirmer le mot de passe</label>
+            <input type="password" id="signup-password2" placeholder="Répétez le mot de passe" autocomplete="new-password" required />
+          </div>
+          <div class="form-remember" style="margin-bottom:16px;">
+            <input type="checkbox" id="signup-cgu" />
+            <label for="signup-cgu">J'accepte les CGU et la Politique de confidentialité</label>
+          </div>
+          <button class="btn btn-primary" id="btn-signup">Créer le compte</button>
+          <div class="espace-links"><a href="#" class="espace-link" data-switch="login">J'ai déjà un compte</a></div>
+        </div>
+
+        <!-- Compte connecté -->
+        <div class="espace-form" id="account-panel" style="display:none;">
+          <h2>Mon compte</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div id="account-greeting" style="font-weight:700;color:var(--text-secondary);"></div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button class="btn btn-primary" id="btn-to-shop">Retour à la boutique</button>
+              <button class="btn btn-secondary" id="btn-logout">Se déconnecter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>MONTROVIA</h3>
+            <p>Un style vrai, une identité forte, une marque qui te ressemble.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Boutique</h4>
+            <ul>
+              <li><a href="index.html#boutique">Tous les produits</a></li>
+              <li><a href="index.html#boutique">T-shirts</a></li>
+              <li><a href="index.html#boutique">Hoodies</a></li>
+              <li><a href="index.html#boutique">Jogging</a></li>
+              <li><a href="index.html#boutique">Bonnets</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="#">Livraison</a></li>
+              <li><a href="#">Retours</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Légal</h4>
+            <ul>
+              <li><a href="#">CGV</a></li>
+              <li><a href="#">Confidentialité</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Mentions légales</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 MONTROVIA. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const tabs = document.querySelectorAll('.tab-btn');
+      const forms = { login: document.getElementById('login-form'), signup: document.getElementById('signup-form') };
+      tabs.forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+      document.querySelectorAll('[data-switch]')?.forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); switchTab(a.dataset.switch); }));
+      function switchTab(name) { tabs.forEach(b => b.classList.toggle('active', b.dataset.tab === name)); Object.values(forms).forEach(f => f.classList.remove('active')); forms[name].classList.add('active'); }
+
+      const next = new URLSearchParams(location.search).get('next');
+      function redirectAfterAuth() {
+        const to = next === 'add-to-cart' || next === 'checkout' ? 'index.html' : 'index.html';
+        location.href = to;
+      }
+
+      function setUser(user) { localStorage.setItem('mt-user', JSON.stringify(user)); }
+
+      function isValidEmail(e){ return /.+@.+\..+/.test(e) }
+      function minLen(s, n){ return (s || '').length >= n }
+
+      document.getElementById('btn-signup').addEventListener('click', () => {
+        const name = document.getElementById('signup-name').value.trim();
+        const email = document.getElementById('signup-email').value.trim();
+        const phone = document.getElementById('signup-phone').value.trim();
+        const pwd = document.getElementById('signup-password').value.trim();
+        const pwd2 = document.getElementById('signup-password2').value.trim();
+        const cgu = document.getElementById('signup-cgu').checked;
+        if (!name || !email || !pwd || !pwd2) { alert('Veuillez remplir tous les champs obligatoires'); return; }
+        if (!isValidEmail(email)) { alert('Email invalide'); return; }
+        if (!minLen(pwd, 6)) { alert('Le mot de passe doit contenir au moins 6 caractères'); return; }
+        if (pwd !== pwd2) { alert('Les mots de passe ne correspondent pas'); return; }
+        if (!cgu) { alert('Veuillez accepter les CGU'); return; }
+        const user = { name, email, phone: phone || null };
+        setUser(user);
+        alert('Compte créé avec succès');
+        showAccount(user);
+      });
+
+      document.getElementById('btn-login').addEventListener('click', () => {
+        const email = document.getElementById('login-email').value.trim();
+        const pwd = document.getElementById('login-password').value.trim();
+        if (!email || !pwd) { alert('Veuillez renseigner vos identifiants'); return; }
+        if (!isValidEmail(email)) { alert('Email invalide'); return; }
+        const remember = document.getElementById('login-remember').checked;
+        const current = JSON.parse(localStorage.getItem('mt-user') || 'null');
+        const user = current && current.email === email ? current : { email };
+        setUser(user);
+        if (remember) { localStorage.setItem('mt-remember', '1'); } else { localStorage.removeItem('mt-remember'); }
+        alert('Connexion réussie');
+        showAccount(user);
+      });
+
+      function showAccount(user){
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('account-panel').style.display = 'block';
+        const tabs = document.getElementById('auth-tabs');
+        if (tabs) tabs.style.display = 'none';
+        document.getElementById('account-greeting').textContent = `Connecté en tant que ${user.name || user.email}`;
+      }
+
+      const existing = JSON.parse(localStorage.getItem('mt-user') || 'null');
+      if (existing) { showAccount(existing); }
+
+      document.getElementById('btn-logout')?.addEventListener('click', () => {
+        localStorage.removeItem('mt-user');
+        alert('Déconnexion réussie');
+        location.reload();
+      });
+      document.getElementById('btn-to-shop')?.addEventListener('click', () => { location.href = 'index.html#boutique'; });
+    </script>
+    <script src="script.js"></script>
+    <script src="invoice.js"></script>
+  </body>
+  </html>
+
