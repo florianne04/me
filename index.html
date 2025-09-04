@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YABISSO - Streaming Musical</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/workspace/main.css">
+    <link rel="icon" href="data:,">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="YABISSO - Votre plateforme de streaming musical moderne.">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-music"></i>
+            </div>
+            <h1>YABI<span>SSO</span></h1>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-page="home">Accueil</a></li>
+                <li><a href="#" class="nav-link" data-page="discover">Découvrir</a></li>
+                <li><a href="#" class="nav-link" data-page="library">Bibliothèque</a></li>
+                <li><a href="#" class="nav-link" data-page="subscriptions">Abonnements</a></li>
+            </ul>
+        </nav>
+        
+        <div class="auth-buttons">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Rechercher..." id="global-search">
+            </div>
+            <button class="btn btn-outline" id="login-btn">Connexion</button>
+            <button class="btn btn-primary" id="register-btn">Inscription</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Écoutez ce que vous aimez. Découvrez ce que vous allez adorer.</h2>
+                    <p>Des millions de titres, playlists et podcasts à portée de main.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-page-jump="discover">Commencer à explorer</button>
+                        <button class="btn btn-outline" data-page-jump="subscriptions">Voir les offres</button>
+                    </div>
+                </div>
+                <div class="hero-art">
+                    <div class="vinyl"></div>
+                    <div class="equalizer">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="featured-section">
+                <h3>Tendances du moment</h3>
+                <div class="music-grid">
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Top Hits 2023</div>
+                            <div class="card-artist">Various Artists</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Rap Français</div>
+                            <div class="card-artist">Meilleur du rap FR</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Chill Vibes</div>
+                            <div class="card-artist">Ambiance relaxante</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Workout Energy</div>
+                            <div class="card-artist">Musique motivante</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="featured-section">
+                <h3>Recommandé pour vous</h3>
+                <div class="music-grid">
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Nouveautés</div>
+                            <div class="card-artist">Sorties récentes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Artistes similaires</div>
+                            <div class="card-artist">Découvertes personnalisées</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Classiques</div>
+                            <div class="card-artist">Tubes intemporels</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-music"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Podcasts</div>
+                            <div class="card-artist">Émissions populaires</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discover Page -->
+        <div id="discover-page" class="page">
+            <h2 class="section-title">Découvrir de nouvelles musiques</h2>
+            
+            <div class="discover-filters">
+                <div class="chips" id="mood-chips">
+                    <button class="chip active" data-filter="all">Tout</button>
+                    <button class="chip" data-filter="energie">Énergie</button>
+                    <button class="chip" data-filter="chill">Chill</button>
+                    <button class="chip" data-filter="focus">Focus</button>
+                    <button class="chip" data-filter="party">Party</button>
+                </div>
+                <div class="sort">
+                    <label for="sort-select">Trier par</label>
+                    <select id="sort-select">
+                        <option value="popularity">Popularité</option>
+                        <option value="new">Nouveautés</option>
+                        <option value="az">A-Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="categories">
+                <h3>Parcourir par genre</h3>
+                <div class="category-grid">
+                    <div class="category-card" data-genre="pop">
+                        <div class="category-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <span>Pop</span>
+                    </div>
+                    
+                    <div class="category-card" data-genre="hiphop">
+                        <div class="category-icon">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <span>Hip-Hop</span>
+                    </div>
+                    
+                    <div class="category-card" data-genre="rock">
+                        <div class="category-icon">
+                            <i class="fas fa-guitar"></i>
+                        </div>
+                        <span>Rock</span>
+                    </div>
+                    
+                    <div class="category-card" data-genre="electronic">
+                        <div class="category-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <span>Électronique</span>
+                    </div>
+                    
+                    <div class="category-card" data-genre="jazz">
+                        <div class="category-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <span>Jazz</span>
+                    </div>
+                    
+                    <div class="category-card" data-genre="classical">
+                        <div class="category-icon">
+                            <i class="fas fa-violin"></i>
+                        </div>
+                        <span>Classique</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="new-releases">
+                <h3>Nouvelles sorties</h3>
+                <div class="music-grid">
+                    <div class="music-card" data-mood="new" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-compact-disc"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Album du mois</div>
+                            <div class="card-artist">Artiste Récent</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-mood="energie" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-compact-disc"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Single exclusif</div>
+                            <div class="card-artist">Nouveau Talent</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-mood="chill" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-compact-disc"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">EP Surprise</div>
+                            <div class="card-artist">Artiste Émergent</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-mood="party" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-compact-disc"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Collaboration</div>
+                            <div class="card-artist">Artistes Variés</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="popular-playlists">
+                <h3>Playlists populaires</h3>
+                <div class="playlist-grid">
+                    <div class="playlist-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3">
+                        <div class="playlist-img">
+                            <i class="fas fa-list-ol"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Top 50 Global</div>
+                            <div class="playlist-desc">Les titres les plus populaires</div>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3">
+                        <div class="playlist-img">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Viral Hits</div>
+                            <div class="playlist-desc">Tendances du moment</div>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3">
+                        <div class="playlist-img">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Love Songs</div>
+                            <div class="playlist-desc">Pour les moments romantiques</div>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3">
+                        <div class="playlist-img">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Road Trip</div>
+                            <div class="playlist-desc">Pour la route</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Library Page -->
+        <div id="library-page" class="page">
+            <h2 class="section-title">Ma Bibliothèque</h2>
+
+            <div class="library-quick">
+                <div class="quick-card">
+                    <i class="fas fa-history"></i>
+                    <div>
+                        <div class="quick-title">Écoutés récemment</div>
+                        <div class="quick-sub">Poursuivez là où vous vous êtes arrêté</div>
+                    </div>
+                </div>
+                <div class="quick-card">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <div class="quick-title">Vos coups de cœur</div>
+                        <div class="quick-sub">Tous vos titres likés</div>
+                    </div>
+                </div>
+                <div class="quick-card" data-page-jump="subscriptions">
+                    <i class="fas fa-crown"></i>
+                    <div>
+                        <div class="quick-title">Passez à Premium</div>
+                        <div class="quick-sub">Sans pub, zapping illimité</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="library-tabs">
+                <button class="tab-btn active" data-tab="playlists">Playlists</button>
+                <button class="tab-btn" data-tab="albums">Albums</button>
+                <button class="tab-btn" data-tab="artists">Artistes</button>
+                <button class="tab-btn" data-tab="liked">Titres likés</button>
+            </div>
+            
+            <div class="tab-content active" id="playlists-tab">
+                <div class="playlist-grid">
+                    <div class="playlist-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3">
+                        <div class="playlist-img">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Mes Favoris</div>
+                            <div class="playlist-desc">15 titres</div>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3">
+                        <div class="playlist-img">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Love Songs</div>
+                            <div class="playlist-desc">22 titres</div>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3">
+                        <div class="playlist-img">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Workout</div>
+                            <div class="playlist-desc">18 titres</div>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist-card create">
+                        <div class="playlist-img">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="playlist-info">
+                            <div class="playlist-title">Créer une playlist</div>
+                            <div class="playlist-desc">Commencer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="albums-tab">
+                <div class="music-grid">
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-compact-disc"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Album Favori</div>
+                            <div class="card-artist">Artiste Préféré</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-compact-disc"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Nostalgie</div>
+                            <div class="card-artist">Artiste Classique</div>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3">
+                        <div class="card-img">
+                            <i class="fas fa-compact-disc"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Découverte</div>
+                            <div class="card-artist">Nouvel Artiste</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="artists-tab">
+                <div class="artists-grid">
+                    <div class="artist-card">
+                        <div class="artist-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="artist-name">Artiste Favori</div>
+                    </div>
+                    
+                    <div class="artist-card">
+                        <div class="artist-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="artist-name">Groupe Préféré</div>
+                    </div>
+                    
+                    <div class="artist-card">
+                        <div class="artist-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="artist-name">Nouvelle Découverte</div>
+                    </div>
+                    
+                    <div class="artist-card">
+                        <div class="artist-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="artist-name">Légende</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="liked-tab">
+                <div class="tracks-list">
+                    <div class="track" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
+                        <div class="track-img">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="track-info">
+                            <div class="track-title">Titre Aimé</div>
+                            <div class="track-artist">Artiste</div>
+                        </div>
+                        <div class="track-duration">3:45</div>
+                        <div class="track-actions">
+                            <button><i class="fas fa-play"></i></button>
+                            <button><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="track" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">
+                        <div class="track-img">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="track-info">
+                            <div class="track-title">Autre Titre</div>
+                            <div class="track-artist">Autre Artiste</div>
+                        </div>
+                        <div class="track-duration">2:55</div>
+                        <div class="track-actions">
+                            <button><i class="fas fa-play"></i></button>
+                            <button><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="track" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3">
+                        <div class="track-img">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="track-info">
+                            <div class="track-title">Morceau Préféré</div>
+                            <div class="track-artist">Star Internationale</div>
+                        </div>
+                        <div class="track-duration">4:15</div>
+                        <div class="track-actions">
+                            <button><i class="fas fa-play"></i></button>
+                            <button><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login-page" class="page">
+            <h2 class="section-title">Connexion</h2>
+            
+            <div class="form-container">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Mot de passe</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%">Se connecter</button>
+                    
+                    <div class="form-switch">
+                        <p>Pas encore inscrit? <a href="#" id="switch-to-register">Créer un compte</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register-page" class="page">
+            <h2 class="section-title">Inscription</h2>
+            
+            <div class="form-container">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-name">Nom complet</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Mot de passe</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-type">Type de compte</label>
+                        <select id="register-type" required>
+                            <option value="listener">Auditeur</option>
+                            <option value="artist">Artiste</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%">S'inscrire</button>
+                    
+                    <div class="form-switch">
+                        <p>Déjà inscrit? <a href="#" id="switch-to-login">Se connecter</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Subscriptions Page -->
+        <div id="subscriptions-page" class="page">
+            <h2 class="section-title">Choisissez votre abonnement</h2>
+            <div class="plans">
+                <div class="plan-card">
+                    <div class="plan-badge">Gratuit</div>
+                    <h3>Free</h3>
+                    <p class="plan-price">0€ <span>/ mois</span></p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Accès à tout le catalogue</li>
+                        <li><i class="fas fa-check"></i> Publicités occasionnelles</li>
+                        <li><i class="fas fa-check"></i> 6 sauts/heure</li>
+                    </ul>
+                    <button class="btn btn-outline plan-cta" data-plan="free">Rester en gratuit</button>
+                </div>
+                <div class="plan-card popular">
+                    <div class="plan-badge">Recommandé</div>
+                    <h3>Premium</h3>
+                    <p class="plan-price">5,99€ <span>/ mois</span></p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Sans publicité</li>
+                        <li><i class="fas fa-check"></i> Qualité audio supérieure</li>
+                        <li><i class="fas fa-check"></i> Sauts illimités</li>
+                        <li><i class="fas fa-check"></i> Écoute hors ligne</li>
+                    </ul>
+                    <button class="btn btn-primary plan-cta" data-plan="premium">Passer en Premium</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-badge">Famille</div>
+                    <h3>Family</h3>
+                    <p class="plan-price">9,99€ <span>/ mois</span></p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Jusqu'à 6 comptes</li>
+                        <li><i class="fas fa-check"></i> Contrôle parental</li>
+                        <li><i class="fas fa-check"></i> Sans publicité</li>
+                    </ul>
+                    <button class="btn btn-outline plan-cta" data-plan="family">Choisir Family</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Player -->
+    <div class="player-controls" id="player">
+        <div class="current-song">
+            <div class="current-song-img"><i class="fas fa-music"></i></div>
+            <div class="song-info">
+                <div class="song-name">Aucun titre en cours</div>
+                <div class="artist-name">—</div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="control-buttons">
+                <i class="fas fa-random" id="btn-shuffle" title="Aléatoire"></i>
+                <i class="fas fa-step-backward" id="btn-prev" title="Précédent"></i>
+                <i class="fas fa-play play-pause" id="btn-play" title="Lecture/Pause"></i>
+                <i class="fas fa-step-forward" id="btn-next" title="Suivant"></i>
+                <i class="fas fa-redo" id="btn-repeat" title="Répéter"></i>
+            </div>
+            <div class="progress-container">
+                <div class="progress-time" id="current-time">0:00</div>
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="progress-time" id="duration">0:00</div>
+            </div>
+        </div>
+        <div class="volume-controls">
+            <i class="fas fa-volume-down"></i>
+            <div class="volume-bar" id="volume-bar">
+                <div class="volume-level" id="volume-level"></div>
+            </div>
+        </div>
+        <audio id="audio" preload="none"></audio>
+    </div>
+
+    <script src="/workspace/script.js"></script>
+</body>
+</html>
