@@ -1,0 +1,17 @@
+{
+  "artists": [
+    { "id": "a1", "name": "Artiste Démo", "bio": "Un son sobre et élégant.", "photoUrl": "/artist.jpg" }
+  ],
+  "albums": [
+    { "id": "al1", "title": "Noir & Blanc", "artistId": "a1", "coverUrl": "/cover.jpg", "year": 2025 }
+  ],
+  "tracks": [
+    { "id": "t1", "title": "Intro", "artistId": "a1", "albumId": "al1", "durationSec": 95, "audioUrl": "/audio/demo.mp3" },
+    { "id": "t2", "title": "Élégance", "artistId": "a1", "albumId": "al1", "durationSec": 180, "audioUrl": "/audio/demo.mp3" }
+  ],
+  "plans": [
+    { "id": "free", "name": "Gratuit", "price": "0€", "features": ["Écoute limitée", "Publicités"] },
+    { "id": "premium", "name": "Premium", "price": "9,99€", "features": ["Écoute illimitée", "Sans pub", "Mode hors-ligne"] }
+  ]
+}
+

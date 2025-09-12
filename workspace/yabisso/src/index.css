@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base: noir & blanc strict, spacing généreux */
+html, body, #root { height: 100%; }
+body {
+  @apply bg-black text-white antialiased; 
+}
+
+/* Typo par défaut */
+:root {
+  --radius: 10px;
+}
+
+/* Liens minimalistes */
+a { @apply underline-offset-4 hover:opacity-80; }
+
+/* Scrollbar discrète */
+* {
+  scrollbar-color: #333 #000;
+  scrollbar-width: thin;
+}
